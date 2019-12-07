@@ -1,4 +1,4 @@
-package com.abysstone;
+package com.abysstone.SongPlayer;
 
 
 import java.util.ArrayList;
@@ -10,24 +10,24 @@ import java.util.LinkedList;
 public class Album {
     private String name;
     private String artist;
-    private ArrayList<com.abysstone.Song> songs;
+    private ArrayList<Song> songs;
 
     public Album(String name, String artist) {
         this.name = name;
         this.artist = artist;
-        this.songs = new ArrayList<com.abysstone.Song>();
+        this.songs = new ArrayList<Song>();
     }
 
     public boolean addSong(String title, double duration) {
         if(findSong(title) == null) {
-            this.songs.add(new com.abysstone.Song(title, duration));
+            this.songs.add(new Song(title, duration));
             return true;
         }
         return false;
     }
 
-    private com.abysstone.Song findSong(String title) {
-        for(com.abysstone.Song checkedSong: this.songs) {
+    private Song findSong(String title) {
+        for(Song checkedSong: this.songs) {
             if(checkedSong.getTitle().equals(title)) {
                 return checkedSong;
             }
@@ -35,7 +35,7 @@ public class Album {
         return null;
     }
 
-    public boolean addToPlayList(int trackNumber, LinkedList<com.abysstone.Song> playList) {
+    public boolean addToPlayList(int trackNumber, LinkedList<Song> playList) {
         int index = trackNumber -1;
         if((index >0) && (index <= this.songs.size())) {
             playList.add(this.songs.get(index));
@@ -45,8 +45,8 @@ public class Album {
         return false;
     }
 
-    public boolean addToPlayList(String title, LinkedList<com.abysstone.Song> playList) {
-        com.abysstone.Song checkedSong = findSong(title);
+    public boolean addToPlayList(String title, LinkedList<Song> playList) {
+        Song checkedSong = findSong(title);
         if(checkedSong != null) {
             playList.add(checkedSong);
             return true;

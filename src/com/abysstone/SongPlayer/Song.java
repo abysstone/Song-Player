@@ -1,4 +1,4 @@
-package com.abysstone;
+package com.abysstone.SongPlayer;
 
 /**
  * Created by abysstone on 12/12/17.

@@ -1,47 +1,55 @@
-package com.abysstone;
+package com.abysstone.SongPlayer;
 
 import java.util.*;
 
 
 public class Main {
 
-    private static ArrayList<com.abysstone.Album> albums = new ArrayList<com.abysstone.Album>();
+    private static ArrayList<Album> albums = new ArrayList<Album>();
 
     public static void main(String[] args) {
 
-        com.abysstone.Album album = new com.abysstone.Album("Stormbringer", "Deep Purple");
-        album.addSong("Stormbringer", 4.6);
-        album.addSong("Love don't mean a thing", 4.22);
-        album.addSong("Holy man", 4.3);
-        album.addSong("Hold on", 5.6);
-        album.addSong("Lady double dealer", 3.21);
-        album.addSong("You can't do it right", 6.23);
-        album.addSong("High ball shooter", 4.27);
-        album.addSong("The gypsy", 4.2);
-        album.addSong("Soldier of fortune", 3.13);
+        Album album = new Album("Cowboys from hell", "Pantera");
+        album.addSong("Cowboys from hell", 4.6);
+        album.addSong("Primal Concrete Sledge", 4.22);
+        album.addSong("Psycho Holiday", 4.3);
+        album.addSong("Heresy", 5.6);
+        album.addSong("Cemetery Gates", 3.21);
+        album.addSong("Domination", 6.23);
+        album.addSong("Shattered", 4.27);
+        album.addSong("Clash With Reality", 4.2);
+        album.addSong("Medicine Man", 3.13);
+        album.addSong("Message in Blood", 4.12);
+        album.addSong("The Sleep", 3.18);
+        album.addSong("The art of shredding", 5.1);
+
         albums.add(album);
 
-        album = new com.abysstone.Album("For those about to rock", "AC/DC");
-        album.addSong("For those about to rock", 5.44);
-        album.addSong("I put the finger on you", 3.25);
-        album.addSong("Lets go", 3.45);
-        album.addSong("Inject the venom", 3.33);
-        album.addSong("Snowballed", 4.51);
-        album.addSong("Evil walks", 3.45);
-        album.addSong("C.O.D.", 5.25);
-        album.addSong("Breaking the rules", 5.32);
-        album.addSong("Night of the long knives", 5.12);
+        album = new Album("Badmotorfinger", "Soundgarden");
+        album.addSong("Rusty Cage", 5.44);
+        album.addSong("Outshined", 3.25);
+        album.addSong("Slaves & Bulldozers", 3.45);
+        album.addSong("Jesus Christ Pose", 3.33);
+        album.addSong("Face Pollution", 4.51);
+        album.addSong("Somewhere", 3.45);
+        album.addSong("Searching With My Good Eye Closed", 5.25);
+        album.addSong("Room A Thousand Years Wide", 5.32);
+        album.addSong("Mind Riot", 5.12);
+        album.addSong("Drawing Flies", 4.1);
+        album.addSong("Holy Water", 3.56);
+        album.addSong("New Damage", 5.35);
+
         albums.add(album);
 
-        LinkedList<com.abysstone.Song> playList = new LinkedList<com.abysstone.Song>();
-        albums.get(0).addToPlayList("You can't do it right", playList);
-        albums.get(0).addToPlayList("Holy man", playList);
+        LinkedList<Song> playList = new LinkedList<Song>();
+        albums.get(0).addToPlayList("Primal Concrete Sledge", playList);
+        albums.get(0).addToPlayList("Domination", playList);
         albums.get(0).addToPlayList("Speed king", playList);  // Does not exist
         albums.get(0).addToPlayList(9, playList);
         albums.get(1).addToPlayList(8, playList);
         albums.get(1).addToPlayList(3, playList);
         albums.get(1).addToPlayList(2, playList);
-        albums.get(1).addToPlayList(24, playList);  // There is no track 24
+        albums.get(1).addToPlayList(29, playList);  // There is no track 29
 
         play(playList);
 
@@ -50,11 +58,11 @@ public class Main {
 
     }
 
-    private static void play(LinkedList<com.abysstone.Song> playList) {
+    private static void play(LinkedList<Song> playList) {
         Scanner scanner = new Scanner(System.in);
         boolean quit = false;
         boolean forward = true;
-        ListIterator<com.abysstone.Song> listIterator = playList.listIterator();
+        ListIterator<Song> listIterator = playList.listIterator();
         if(playList.size() == 0) {
             System.out.println("No songs in playlist");
             return;
@@ -153,8 +161,8 @@ public class Main {
     }
 
 
-    private static void printList(LinkedList<com.abysstone.Song> playList) {
-        Iterator<com.abysstone.Song> iterator = playList.iterator();
+    private static void printList(LinkedList<Song> playList) {
+        Iterator<Song> iterator = playList.iterator();
         System.out.println("================================");
         while(iterator.hasNext()) {
             System.out.println(iterator.next());
